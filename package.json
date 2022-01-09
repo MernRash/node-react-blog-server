@@ -1,0 +1,23 @@
+{
+  "name": "react-blog-server",
+  "version": "1.0.0",
+  "description": "It is an backend server for react blog.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rahul Shrestha",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "yarn": "^1.22.17"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
