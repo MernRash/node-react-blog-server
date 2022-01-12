@@ -68,6 +68,34 @@ router.get("/filterByClap", verifyToken, (req,res)=> {
 })
 
 
+router.get("/filtertopPost", verifyToken, (req,res)=> {
+  const clapCount = 70;
+  const catagory = req.query.catagory;
+
+  const filteredtopPost = blogData.filter((blog)=> {
+      return blog.claps > clapCount;
+  })
+  
+  const sortedTopPost = filteredtopPost.sort((a,b)=>
+  {
+    if(b.claps>a.claps) return 1;
+    if(b.claps<a.claps) return -1;
+    return 0;
+  }
+  );
+
+console.log("paritosh Saying Sorted Ye h bhadve",sortedTopPost)
+  if(filteredtopPost === undefined ){
+      res.status(400)
+      .json({success : false, message: "No blogs available"})
+      return
+  }
+  res
+  .status(200)
+  .json({success:true, message: "blogs filtered by clap count", sortedTopPost})
+})
+
+
 router.get("/filterByDate", verifyToken, (req,res)=> {
   // const clapCount = 60;
   

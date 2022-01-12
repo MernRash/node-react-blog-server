@@ -17,14 +17,14 @@ const PostData = [
       id: 1,
       author: "James Bond",
       imgURL: "https://www.hollywoodreporter.com/wp-content/uploads/2021/10/Daniel-Craig-Ana-de-Armas-in-No-Time-to-Die-Everett-H-2021.jpg",
-      title: "No date To Die Released",
+      title: "No Date To Die Released",
       desc: "James Bond is a fictional character created by novelist Ian Fleming in 1953. A British secret agent working for MI6 under the codename 007, he has been portrayed on film by actors Sean Connery, David Niven, George Lazenby, Roger Moore, Timothy Dalton, Pierce Brosnan, and Daniel Craig in twenty-seven productions.",
       category: "hollywood",
       date: "August 21 2,021",
       tags: ["007", "James Bond"],
       readdate: "10 mins read",
       views:50,
-      claps:72,
+      claps:92,
 
   },
   {
