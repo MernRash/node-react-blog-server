@@ -84,7 +84,7 @@ router.get("/filtertopPost", verifyToken, (req,res)=> {
   }
   );
 
-console.log("paritosh Saying Sorted Ye h bhadve",sortedTopPost)
+console.log("Sorted Post",sortedTopPost)
   if(filteredtopPost === undefined ){
       res.status(400)
       .json({success : false, message: "No blogs available"})
