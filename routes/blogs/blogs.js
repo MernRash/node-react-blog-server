@@ -9,7 +9,7 @@ const verifyToken = require('../middleware');
 
 router.get("/",verifyToken, (req, res) => {
   const catagory = req.query.catagory;
-  
+  let limit = 2;
 
   if (catagory === undefined) {
     res.status(503).json({ success: false, message: "catagory is undefined" });
@@ -25,7 +25,7 @@ router.get("/",verifyToken, (req, res) => {
     .json({
       success: true,
       message: "Sending Blogs Data Successfully",
-      filteredData,filterByClap
+      filteredData,limit,filterByClap
     });
 });
 
