@@ -1,7 +1,16 @@
 
 const express = require('express');
 
+const dotenv = require("dotenv");
+
+dotenv.config()
+
+const connectDB = require("./configuration/config")
+connectDB();
+
 const app = express();
+/* to get response Data inside body */
+app.use(express.json());
 
 const cors = require('cors');
 
@@ -16,8 +25,6 @@ const clapRouter =  require('./routes/claps/clap');
 // const homeRouter = require('./routes/home/home');
 /* Server Setup Starts */
 
-/* to get response Data inside body */
-app.use(express.json());
 
 /* after reading api url (/api/v1/auth) it will go to authrouter file which authLogin.js for further refrence */
 
@@ -33,7 +40,7 @@ app.use('/api/v1/claps',clapRouter);
 app.get('/',(req,res)=>{
     res.json({
         success:true,
-        messege : "kuch bhi",
+        messege : "It is a NodeJs Blog Project",
     })
 })
 

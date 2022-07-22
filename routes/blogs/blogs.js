@@ -9,7 +9,8 @@ const verifyToken = require('../middleware');
 
 router.get("/",verifyToken, (req, res) => {
   const catagory = req.query.catagory;
-  let limit = 2;
+ let limit =2;
+  
 
   if (catagory === undefined) {
     res.status(503).json({ success: false, message: "catagory is undefined" });
@@ -18,6 +19,8 @@ router.get("/",verifyToken, (req, res) => {
   const filteredData = blogData.filter(
     (values) => values.category === catagory
   );
+
+  
   const filterByClap = blogData.filter((values)=> values.claps>60);
 
   res
@@ -84,7 +87,7 @@ router.get("/filtertopPost", verifyToken, (req,res)=> {
   }
   );
 
-console.log("Sorted Post",sortedTopPost)
+// console.log("Sorted Post",sortedTopPost)
   if(filteredtopPost === undefined ){
       res.status(400)
       .json({success : false, message: "No blogs available"})
