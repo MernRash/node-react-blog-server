@@ -16,19 +16,23 @@ const router = express.Router();
 
 /* MongoDB Schema Model */
 const UserModel = require("../../dataModels/userModel");
+const verifyToken = require('../middleware');
 
 /* Setting UP API for Login */
 
+let bodyEmail,bodyPassword;
+
 router.post('/login', (req, res) => {
     let userId;
-    const bodyEmail = req.body.email;
-    const bodyPassword = req.body.password;
+     bodyEmail = req.body.email;
+     bodyPassword = req.body.password;
     // console.log(bodyEmail, bodyPassword)
 
     if (bodyEmail === undefined || bodyPassword === undefined) {
         res.status(400).json({ success: false, messege: "Please Provide Valid Email and Password" })
         return;
     }
+    console.log(bodyEmail,bodyPassword,"from login details")
 
     /* UserModel while connected to Database to find Email in DAtabase  */
     UserModel.findOne({ email: bodyEmail }, (err, user) => {
@@ -135,6 +139,25 @@ router.post("/signup", (req, res) => {
 
 })
 
+router.get("/user-details",verifyToken,(req,res)=>{
+
+    console.log(bodyEmail,bodyPassword,"from user details")
+    let requestfromDB = res;
+    // console.log(requestfromDB)
+    UserModel.findOne({email:bodyEmail},(err,docs)=>{
+        if (err) throw err;
+
+        if(docs){
+            
+
+                res.status(200).json({success:true,message:"data fetched properly",data:{docs}})
+            
+           
+        }
+        // console.log(docs,"docs from DB")
+    })
+    
+})
 
 
 
